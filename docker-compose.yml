@@ -14,7 +14,7 @@ services:
       - 2181:2181 # Zookeeper
   # Divolte container
   docker-divolte:
-    build: divolte/
+    image: divthis/divolte
     container_name: docker-divolte
     environment:
       - DIVOLTE_KAFKA_BROKER_LIST=docker-kafka:9092
@@ -28,7 +28,7 @@ services:
       - docker-kafka:docker-kafka
   # Druid container
   docker-druid:
-    build: druid/
+    image: fokkodriesprong/docker-druid
     container_name: docker-druid
     ports:
       - 8081:8081
@@ -39,7 +39,7 @@ services:
       - docker-kafka:docker-kafka
   # Superset container
   docker-superset:
-    build: superset/
+    image: fokkodriesprong/docker-superset
     container_name: docker-superset
     ports:
       - 8088:8088
